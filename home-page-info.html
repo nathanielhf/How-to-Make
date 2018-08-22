@@ -1,0 +1,155 @@
+<div class="full-width-text"> 
+  <div class="page-center">
+    {% for item in module.info_group %}
+    <div class="full-width-text-wrapper ">
+      <div class="top-area {% if item.use_big_image %} top-area-secondary-bg-color {% elif %} primary-bg-color {% endif %}">
+        <div class="top-left-box" {% if !item.use_big_image %} style="max-width:100%" {% endif %}>
+          <div class="type-info">
+            {% if !item.hide_icon %}<img src="{{ item.icon.src }}">{% endif %}
+            <h4>{{ item.post_type }}</h4>
+          </div>
+          <div class="headings-and-image"{% if item.use_big_image %} style="justify-content: space-between;"{% endif %}>
+            <div class="headings">
+            <h2>{{ item.main_heading }}</h2>
+            {% if item.use_big_image %}<h3>{{ item.subheading }}</h3>{% endif %}
+            </div>
+            {% if !item.use_big_image %}
+            	<div class="image-column">
+              	<div class="small-image"><img src="{{ item.small_image.src }}"></div>
+	            </div>
+            {% endif %}
+          </div>
+        </div>
+        {% if item.use_big_image %}
+        <div class="image-column" style="width: 50%;" >
+            
+            <div class="big-image"><img src="{{ item.big_image.src }}"></div>
+          </div> 
+        {% endif %}
+      </div>
+      
+      <div class="bottom-area {% if item.use_big_image %} bottom-area-secondary-bg-color {% elif %} primary-bg-color {% endif %}">
+        {% if !item.use_big_image %}
+        <div class="cta-text-stacked">
+          <article class="span12">{% inline_rich_text field="section_content" value="{{ item.section_content }}" %}</article>
+          <div class="more-cta percent20" style="margin-left: 80%;">
+<!--             <a class="view-read-cta">Test CTA Text<div class="triangle"></div></a> -->
+            <div class="view-read-cta">{% cta guid="{{ item.cta_field }}" %}<div class="triangle"></div></div>
+          </div>
+        </div>
+        {% endif %}
+        {% if item.use_big_image %}
+        <div class="side-by-side">
+          <article class="percent80">{% inline_rich_text field="section_content" value="{{ item.section_content }}" %}</article>
+          <div class="more-cta percent20">
+            <div class="view-read-cta">{% cta guid="{{ item.cta_field }}" %}<div class="triangle"></div></div>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+
+.full-width-text-wrapper {
+    position: relative;
+}
+
+.top-area, .bottom-area {
+	padding:  25px 50px;
+}
+
+.top-left-box {
+	 max-width: 50%;
+    padding-right: 10px;
+}
+
+.type-info {
+  display: flex;
+  align-items: center;
+}
+
+.type-info img {
+  max-width: 50px;
+  max-height: 50px;
+  margin-right: 10px;
+}
+
+.type-info h4 {
+  padding: 10px;
+  padding-left: 0px;
+  margin-bottom: 0px;
+  color: #e9236c;
+}
+
+.headings-and-image {
+  display: flex;
+  align-items: center;
+}
+
+.headings-and-image .headings h2, .headings-and-image .headings h3 {
+	margin: 0px;
+}
+
+.image-column {
+    padding-left: 25px;
+}
+
+.small-image {
+    height: 100px;
+}
+
+.small-image img, .big-image img {
+	height: 100%;
+}
+
+
+.big-image {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0;
+  	max-width: 50%;
+}
+
+.top-area {
+    position: relative;
+}
+
+.cta-text-stacked article {
+    padding: 25px 0px;
+}
+
+.more-cta {
+	text-align: center;
+}
+
+.side-by-side {
+  display: flex;
+  padding:0px;
+}
+
+.percent80 {
+	width: 80%;
+}
+
+.percent20 {
+	width: 20%;
+}
+
+.top-area-secondary-bg-color {
+    background: rgba(214,227,238, .3);
+}
+
+.bottom-area-secondary-bg-color {
+        background: rgba(99,150,161, .3);
+}
+
+.primary-bg-color {
+	background: #efefef;
+}
+
+</style>
