@@ -1,0 +1,20 @@
+var propertyData = {
+    "properties": [
+        {
+            headerRow[1] /* this is the id/primary key */: row[1] column-of-row[1],
+            headerRow[2]: row[1] column-of-row[2]
+        },
+        {
+            headerRow[1] /* this is the id/primary key */: row[2] column-of-row[1],
+            headerRow[2]: row[2] column-of-row[2]
+        }
+    ]
+}
+
+store each value of headerRow
+
+for each body row  
+    for each column of row
+        key[i] = headerRow[i]
+        value[i] = column[i]
+    properties[i] = row[i]

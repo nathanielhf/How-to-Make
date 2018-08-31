@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gordon's API Connection and Storage</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        $.ajax({            
+            dataType: "text",
+            url: "https://cors.io/?https://docs.google.com/spreadsheets/d/1APZkhwIPeJ_dKUcnKW4lmQEAIOXodFAiDYccLI1F5TQ/export?format=csv&id=1APZkhwIPeJ_dKUcnKW4lmQEAIOXodFAiDYccLI1F5TQ&gid=780694331",
+            type: "GET",
+            success: function (res) {
+            }
+        }).fail(function(err){
+            console.log(err);
+            console.log("fail");
+        }).done(successFunction);    
+
+       function successFunction(data){
+
+            var allRows = (data.split("\n")); // split data into back into original rows
+            var headerRow = allRows[0].split(","); // work with first row (column names)
+            var bodyRows = makeBodyRows(allRows);
+            var allListings = {}
+            allListings["listings"] = []; 
+
+            // iterate through rows, starting with 1 ([0] is header)
+            for (var i = 1; i < allRows.length; i++){
+                var columns = allRows[i].split(",");     
+                // declare object var listing
+                var singleListing = array_combine(headerRow, columns)
+                allListings["listings"].push(singleListing)
+            }
+            console.log(allListings)                    
+        }        
+
+        //combinearray args: keys, value
+        function array_combine(keys, value){
+            // create array var 
+            var newListing = {};
+            // iterate through keyslength
+            for (var i = 0; i < keys.length; i++){
+                // arraykey[keys] = [value]
+                newListing[keys[i]] = value[i]
+            }
+            return newListing;
+        }
+
+        function makeBodyRows(allRows){
+            var returnArray = []
+
+            for(var i = 1; i < allRows.length; i++){
+                returnArray.push([allRows[i]])
+            }
+            return returnArray;
+        }
+
+    </script>
+    <!-- Print above data to screen -->
+    <!-- Add search function -->
+</body>
+</html>

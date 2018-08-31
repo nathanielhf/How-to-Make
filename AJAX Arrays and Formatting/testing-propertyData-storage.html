@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Testing Abstraction of propertyData storage</title>
+</head>
+<body>
+    <script>
+
+        // store each value of headerRow
+
+        // for each body row  
+        //     for each column of row
+        //         key[i] = headerRow[i]
+        //         value[i] = column[i]
+        //     properties[i] = row[i]
+        
+        var allListings = {
+            "listings": [
+                {
+                    "id": 1,
+                    "propertyName": "Big Farm",
+                    "price": "$2,499,999",
+                    "location": "Morton,"
+                },
+                {
+                    "id": 2,
+                    "propertyName": "Cottage",
+                    "price": "$349,000",
+                    "location": "Burks Falls, ON"
+                }
+            ]
+        };
+
+        var headerRow = ["Property Number", "Address", "Price"];
+        var bodyRows = [["Property 1", "Morton, ON", "$2,499,999"],["Property 2", "Burks Falls, ON", "$349,000"]];
+
+        // console.log(propertyData["properties"])
+    
+        // bodyRows.forEach(function(row){
+        //     for (var i = 0; i < row.length; i++){
+        //             console.log(headerRow[i] + ": " + row[i]);
+
+        //             // put headerRow[i] into key and row[i] into value
+        //     }
+        // })
+
+       
+
+        // for (var row = 0; row < bodyRows.length; row++){
+        //     //console.log(bodyRows[row])
+        //     var thisRow = (propertyData["properties"][row]);
+        //    // console.log(thisRow)
+
+
+        //     // iterate through each property and index of arrays
+        //     // change key to values in headerRow
+        //     var i = 0;
+        //     for (value in thisRow){     
+                           
+        //         //value.push(headerRow[i]);
+        //         //thisRow[value].push(thisRow[i]);
+        //        // console.log(value + " " + thisRow[value])
+        //         i++
+        //     }
+        // };
+
+        // build out new objects
+            allListings = {};
+            allListings["listings"] = []
+            // push in headers as value
+            //for each header row, make a new property in listings array
+            
+            bodyRows.forEach(function(row){
+                var singleListing = {};
+                for (var i = 0; i <headerRow.length; i++){
+                    singleListing[headerRow[i]] = row[i]
+                }
+
+                allListings["listings"].push(singleListing)
+            })
+            
+            console.log(allListings)
+
+            // function my_array_combine (keys, values){
+            //     var newArray = {}
+            //     for (var i = 0; i < keys.length; i++){
+            //         newArray[keys[i]] = values[i]
+            //     }
+            //     return newArray;
+            // }        
+
+            //for each body row, make a new object in listing array, and set values to data from bodyRow
+            // bodyRows.forEach(function(data){
+            //         for (var i = 0; i< data.length; i++){
+            //             singleListing = data[i]
+            //         }
+            //     })
+
+            // bodyRows.forEach(function(row){
+            //     listing = {};
+            //     for(var i = 0; i < headerRow.length; i++){
+            //         item = {};
+            //         item[headerRow[i]] = row[i];
+            //         console.log(item)
+            //         //console.log(item)
+            //         listing[row] = item
+                    
+            //     }
+            //     //console.log(listing)
+            //     allListings["listings"].push(listing)
+            // });
+            // //
+            // console.log(allListings)
+            // push i
+            
+
+            //console.log(propertyData)
+
+            
+            // headerRow.forEach(function(col){
+            //     listing.push(col)
+            // })
+            // console.log(listing)
+            // for(key in listing){
+            //     console.log(listing[key])
+            // }
+            // push in body data as listing
+
+        // push full object into properties array
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+</head>
+<body>
+    <script>
+
+
+    /*------------------------------*
+     *       Start Example Code     *
+     *------------------------------*/    
+        // var dict = {}; // new dictionary object
+
+        // // add new key with a value
+        // dict.fred = 42; // "fred" is a constant and conforms to id rules
+
+        // // add another key with a value
+        // dict["2bob2"] = "twins!"; // using subscript notation because key is arbitrary (not id)
+
+        // // add arbitrary dynamic key with a dynamic value
+        // // var key = ,
+        // //     value = ;
+        // // dict[key] = val;
+        // var val;
+
+        // // read value of "fred"
+        // val = dict.fred;
+        // console.log(val)
+        // // read value of 2bob2
+        // val = dict["2bob2"];
+        // console.log(val)
+
+
+        // var key,
+        //     val;
+        // dict[key] = val;
+
+        // // change values
+        // dict.fred = "astra";
+
+        // dict["2bob2"] = "propname";
+
+        // // change value of secret key
+        // dict[key] = undefined;
+
+        // // go over all keys and values in dictionary
+        // for (key in dict){
+        //     if (dict.hasOwnProperty(key)) {
+        //         console.log("key = " + key + ", value = " + dict[key])
+        //     }
+        // }
+
+        // console.log(dict)
+
+    /*------------------------------*
+     *       END Example Code       *
+     *------------------------------*/  
+
+    /*--------------------------------------------*
+     *       Start My Un-nested Object Code       *
+     *--------------------------------------------*/  
+
+        // Create dictionary
+        // init key and value
+        // iterate over each array, adding each value as value to key
+
+        var dict = {};
+
+        var key,
+            val;
+        dict[key] = val;
+
+        var headerArr = ["Column One", "Column Two", "Column Three"],
+            arr2 = [1, 2, 3],
+            arr3 = ["cat", 4, "dog"],
+            bodyArrays = [arr2, arr3];
+
+        bodyArrays.forEach(function(arr){
+            for (var i = 0; i < headerArr.length; i++){
+                dict[key] = i;
+                //console.log(bodyArrays[i])
+                dict[headerArr[i]] = bodyArrays[i];
+            }
+        });
+
+        for (key in dict){
+            if (dict.hasOwnProperty(key)) {
+                //console.log("key = " + key + ", value = " + dict[key])
+            }
+        }
+
+
+        // this is what I want to create DYNAMICALLY
+        var key,
+            value;
+            dict[key] = value;
+
+        //
+
+        var propertyData = {
+            "properties": [
+                {
+                    "id": 1,
+                    "propertyName": "Big Farm",
+                    "price": "$2,499,999",
+                    "location": "Morton, ON"
+                },
+                {
+                    "id": 2,
+                    "propertyName": "Cottage",
+                    "price": "$349,000",
+                    "location": "Burks Falls, ON"
+                }
+            ]
+        };
+
+
+
+        console.log(propertyData)
+
+        // dict.forEach(function(arr){
+        //     for (key in dict) {
+        //         if (dict.hasOwnProperty(key)){
+        //             console.log(key + value);
+        //         }
+        //     }
+        // });
+
+    /*------------------------------------------*
+     *       END My Un-nested Object Code       *
+     *------------------------------------------*/ 
+
+    
+
+    /*--------------------------------------*
+     *       Start Nested Object Code       *
+     *--------------------------------------*/ 
+        // do the above, but make new dictionary? add each new arry to value instead of key?
+        // create topLevel object
+
+    // var topLevel = {};
+
+      
+    // // create nested objects
+    // // topLevel[1] = {"name": "first nested object"};
+    // // topLevel[2] = {"name": "second nested object"};
+    // firstObj = {"name": "hello"};
+    // secondObj = [1, 2, 3];
+
+    // topLevel[1] = firstObj;
+    // topLevel[2] = secondObj;
+
+    
+
+    // console.log(topLevel);
+
+    /*------------------------------------*
+     *       END Nested Object Code       *
+     *------------------------------------*/ 
+        
+    </script>
+</body>
+</html>

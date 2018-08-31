@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>AJAX Test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+
+    <p></p>
+
+
+    <script>
+        var pageData;
+
+        // $.getJSON('http://cors.io/?https://blockchain.info/stats?format=json',function(){})
+
+        $.ajax({            
+            dataType: "text",
+            url: "https://cors.io/?https://docs.google.com/spreadsheets/d/1APZkhwIPeJ_dKUcnKW4lmQEAIOXodFAiDYccLI1F5TQ/export?format=csv&id=1APZkhwIPeJ_dKUcnKW4lmQEAIOXodFAiDYccLI1F5TQ&gid=780694331",
+            type: "GET",
+            success: function (res) {
+               //console.log(res);
+                //console.log("success");
+            }
+        }).fail(function(err){
+            console.log(err);
+            console.log("fail");
+        }).done(successFunction);
+
+        /****************************************
+        *                                       *
+        *       SUCCESS LOGIC BEGINS HERE       *
+        *                                       *
+        *****************************************/
+        function successFunction(data){
+        
+        /*========== Global Variables for Success Logic ==========*/
+
+        //declare list
+        var list = [];
+        // get an array / row
+        var allRows = data.split("\n");
+
+        // CREATE ROW FOR HEADERS
+        var headerRow =[];
+
+        var jsObj = {};
+
+        /*========== End of Global Variables for Success Logic ==========*/
+
+            //console.log(allRows[0])
+            // DIVIDE FIRST ROW INTO INDIVIDUAL COLUMNS
+            var columnsOfRow = allRows[0].split(",");
+            //console.log(columnsOfRow) 
+
+            // PUSH EACH COLUMN ONTO HEADER ROW
+            columnsOfRow.forEach(function(column){
+                headerRow.push(column)
+            });
+
+            /*************************
+            *   headerRow is an array with all the column names in it
+            **************************/
+
+            console.log(headerRow)
+
+            /*--------- Begin looping through body rows ---------*/
+            for (var i = 1; i < allRows.length; i++){
+                console.log("\n\n========== NEW ITERATION OF OUTER FOR LOOP ==========\n")
+                // console.log("new row: " + row);
+
+                // dynamically create new row using for loop?
+                var bodyRow = [];
+
+                // DIVIDE BODY ROWs INTO INDIVIDUAL COLUMNS           
+                var columnsOfRow = allRows[i].split(",")  
+                // PUSH EACH COLUMN ONTO BODY ROW 
+                columnsOfRow.forEach(function(column){
+                    bodyRow.push(column)
+                });
+
+                console.log(bodyRow)
+
+                // for each bodyRow, add each column as a value to a key in headerRow
+                for (var j = 0; j < allRows.length; j++){
+                    console.log("\n\n---------- new iteration of inner for loop ----------\n")
+                    console.log("header row j: " + headerRow[j]);
+                    console.log("body row j: " + bodyRow[j]);
+                    //var newPair = headerRow[j]+=bodyRow[j];
+                    jsObj[headerRow[j]]= bodyRow[j];
+                    console.log("this is what happened: " + jsObj[headerRow[j]]);                    
+                }
+                
+            };
+            /*--------- End looping through body rows ---------*/
+
+/*
+                columnsOfRow.forEach(function(columnName){
+                    // set value to data from column
+                    headerRow +=columnName;
+                    //console.log("new column: " + columnName)
+                });                
+
+                //console.log("header row: " + headerRow)
+                // for each row
+                // iterate through columns
+
+                // first row pull all column names + property number names
+
+                             
+
+                // every other row, iterate through, split at comma, push to named column
+
+                
+                
+
+                    var dataRow = [];
+
+                    var id = 1;
+
+                    columnsOfRow.forEach(function(entry){                    
+                    // init an object
+                    
+                    // add type
+                    // add value
+                    // singleColumn['id'] = id;
+                    // singleColumn['value'] = entry;
+                    //for loop first row in row array
+                    
+                        
+
+                    
+                        //console.log(singleColumn);
+
+                    // push object onto list
+                    dataRow.push(headerRow)
+
+                    id++;
+                })
+                list.push(dataRow)
+
+            };
+            
+*/
+        } /* successFunction ends here */
+
+    </script>
+</body>
+</html>
+  
+
+
+  <!-- https://stackoverflow.com/questions/6323338/jquery-ajax-posting-json-to-webservice -->

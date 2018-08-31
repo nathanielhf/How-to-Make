@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>AJAX Test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+
+    <p></p>
+
+
+    <script>
+        var pageData;
+
+        // $.getJSON('http://cors.io/?https://blockchain.info/stats?format=json',function(){})
+
+        $.ajax({            
+            dataType: "text",
+            url: "https://cors.io/?https://docs.google.com/spreadsheets/d/1APZkhwIPeJ_dKUcnKW4lmQEAIOXodFAiDYccLI1F5TQ/export?format=csv&id=1APZkhwIPeJ_dKUcnKW4lmQEAIOXodFAiDYccLI1F5TQ&gid=780694331",
+            type: "GET",
+            success: function (res) {
+               //console.log(res);
+                //console.log("success");
+            }
+        }).fail(function(err){
+            console.log(err);
+            console.log("fail");
+        }).done(successFunction);
+
+        function successFunction(data){
+        //declare list
+        var list = [];
+        // get an array / row
+        var allRows = data.split("\n");
+
+        var singleColumn ={};
+
+        
+            allRows.forEach(function(row){
+                // console.log("new row: " + row);
+
+                console.log(row[0])
+
+                // foreach column in first row                
+                var columnsOfRow = row[0].split(",")   
+                columnsOfRow.forEach(function(columnName){
+                    // set value to data from column
+                    singleColumn[columnName];
+                    console.log("new column: " + columnName)
+                });                
+
+                //console.log("single column: " + singleColumn)
+                // for each row
+                // iterate through columns
+
+                // first row pull all column names + property number names
+
+                             
+
+                // every other row, iterate through, split at comma, push to named column
+
+                
+                
+
+                    var dataRow = [];
+
+                    var id = 1;
+
+                    columnsOfRow.forEach(function(entry){                    
+                    // init an object
+                    
+                    // add type
+                    // add value
+                    // singleColumn['id'] = id;
+                    // singleColumn['value'] = entry;
+                    //for loop first row in row array
+                    
+                        
+
+                    
+                        //console.log(singleColumn);
+
+                    // push object onto list
+                    dataRow.push(singleColumn)
+
+                    id++;
+                })
+                list.push(dataRow)
+
+            });
+            
+
+        }
+
+    </script>
+</body>
+</html>
+  
+
+
+  <!-- https://stackoverflow.com/questions/6323338/jquery-ajax-posting-json-to-webservice -->
