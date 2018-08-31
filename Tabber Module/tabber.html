@@ -1,0 +1,39 @@
+
+
+<div class="hs-tabs">
+    <ul class="hs-tabs__nav">  
+      {% for item in module.tab -%}
+      <li><a href="#tab-{{ loop.index }}" class="hs-tabs__navitem{% if loop.index == 1 %} hs-tabs__navitem--active{% endif %}">
+        <div class="image-field">{% image field="tab_label" value="{{ item.tab_image.src }}"  style="height:100%;width:100%;" %} </div><!--style="width:75px;height:100px!important;"-->
+        <div class="leader-name">{% inline_text field="tab_label" value="{{ item.tab_label }}" %}</div></a></li>
+      {%- endfor %}
+    </ul>
+    {% for item in module.tab %}
+    <div id="tab-{{ loop.index }}" class="hs-tabs__item{% if loop.index == 1 %} hs-tabs__item--active{% endif %}">
+      <div class="left-content">
+        
+        <div class="content-image">{% image field="tab_label" value="{{ item.main_image.src }}" style="height:100%;width:100%;" %}</div>
+      </div>
+      <div class="right-content">
+          <h2>{{ item.tab_label }}</h2>
+        <h4>{{ item.job_title }}</h4>
+        <p>{{ item.content }}</p>
+      </div>
+    </div>  
+    {% endfor %}
+  </div>
+  
+  {% require_css %}
+  <style>
+    .hs-tabs__navitem:not(.hs-tabs__navitem--active) img{
+      /*background-color: #cecece;*/
+      color: #000;
+      opacity: 0.5;
+    }
+    
+    .hs-tabs__navitem:not(.hs-tabs__navitem--active) div{
+        opacity: 1!important;
+    }
+  </style>
+  {% end_require_css %}
+  

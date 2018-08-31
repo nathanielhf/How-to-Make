@@ -1,0 +1,170 @@
+.hs-tabs__nav {
+	display: flex;
+  justify-content: center;
+	border-bottom: 1px solid black;
+}
+
+.hs-tabs__nav .image-field {
+	height: 80px;
+  width: 80px;
+/*  padding-bottom: 10px;*/
+  margin: 0px auto;
+  
+}
+
+.hs-tabs__nav .image-field img {
+	border-radius: 50%;
+}
+
+.content-image {
+	height: auto;
+  width: 220px;
+  padding-top: 10px!important;
+  margin: 0px;
+}
+
+/* .hs-tabs__item .content-image img{
+	border-radius: 5px;
+} */
+
+.hs-tabs__navitem {
+	color: #000;
+}
+
+.hs-tabs__item{
+  display: none;
+  padding: 20px;
+/*  border: 1px solid #00*/0;
+}
+.hs-tabs__item--active{
+  display: block;
+}
+.hs-tabs__item img{ 
+ 	/* Protect images from overflowing the tab */ 
+  max-width: 100%;
+  height: 300px;
+  width: 220px;
+}
+.hs-tabs__nav{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: -1px;
+}
+
+ul.hs-tabs__nav li {
+  /* padding here?*/
+    padding: 20px 0px 0px 20px;
+}
+
+ul.hs-tabs__nav li:last-child {
+  padding: 20px 20px 0px 20px;
+}
+
+.hs-tabs__nav li{
+  display: inline-block;
+}
+
+.hs-tabs__navitem{
+  text-decoration: none;
+  display: block;
+/* took padding from here*/
+  padding-bottom: 20px;
+/*	border: 1px solid #000;  */
+  border-bottom: none;
+}
+
+a.hs-tabs__navitem.hs-tabs__navitem--active {
+    border-bottom: 5px solid #2989dd;
+    padding-bottom: 15px;
+  	color: #2989dd;
+}
+
+.hs-tabs__navitem--active{
+  color: #000;
+  background: #fff;
+/*  border-bottom: 5px solid #2989dd;*/
+}
+/* fix for hubspot injected div */
+.hs-tabs__navitem *{
+  pointer-events: none;
+}
+a
+.hs-tabs .hs-tabs__nav .image-field img {
+	border-radius: 50%;
+}
+
+
+.leader-name {
+    text-align: center;
+}
+
+
+a.hs-tabs__navitem:hover {
+    /*opacity: 0.8;*/
+  	color: #2989dd;
+}
+
+.hs-tabs__item .left-content {
+/*	min-width: 180px;
+  max-width: 200px;*/
+  width: 240px;
+}
+
+.hs-tabs__item--active {
+    display: flex;
+    align-items: flex-start;
+}
+
+.hs-tabs__item--active div {
+	padding: 10px;
+}
+
+.hs-tabs__item--active div div {
+	padding: 0px;
+}
+
+.hs-tabs__item--active div div:first-child {
+		font-size: 22px;
+  	margin-bottom: 10px;
+}
+
+
+
+@media (max-width: 767px) {
+  .hs-tabs__item--active {
+    display: block;
+	}
+  
+  .hs-tabs__item .left-content, .hs-tabs__item .right-content h2, .hs-tabs__item .right-content h4 {
+  	text-align: center;
+  }
+  
+  .left-content, .left-content .content-image {
+  	margin: 0px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  
+  .hs-tabs__nav {
+  	display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }	  
+  
+	ul.hs-tabs__nav li {
+    padding: 5px 2.5px 0px 2.5px!important;
+    width: 45%;
+	}
+  
+  .hs-tabs__nav img {
+  	width: 100%!important;
+  }
+  
+  a.hs-tabs__navitem.hs-tabs__navitem--active {
+    border-bottom: none;
+    padding-bottom: auto;
+	}
+
+}
